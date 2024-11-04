@@ -1,8 +1,10 @@
-#N canvas 185 123 501 426 12;
-#X obj 60 190 cnv 15 335 199 empty empty empty 20 12 0 14 #e0e0e0 #404040 0;
+#N canvas 186 123 501 426 12;
+#X obj 60 190 cnv 15 335 199 empty empty empty 20 12 0 14 #e0e0e0 #404040
+0;
 #X text 220 70 robotcowboy.com | danomatika.com;
 #X text 220 50 Dan Wilcox 2009 \, 2015;
-#X obj 143 17 tgl 15 0 empty empty print 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 143 17 tgl 15 0 empty empty print 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #N canvas 752 376 418 314 oscreceive 0;
 #X obj 47 131 oscparse;
 #X obj 47 165 list trim;
@@ -32,7 +34,8 @@
 #X connect 11 0 10 0;
 #X coords 0 314 1 313 140 40 0;
 #X restore 20 50 pd oscreceive 8880;
-#X obj 20 15 tgl 15 0 empty empty poll 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 20 15 tgl 15 0 empty empty poll 17 7 0 10 #fcfcfc #000000 #000000
+1 1;
 #N canvas 552 227 450 273 config 0;
 #X text 93 25 change dev name;
 #X msg 23 23 set gc2;
@@ -49,31 +52,49 @@
 #X connect 3 0 9 0;
 #X connect 4 0 9 0;
 #X restore 108 80 pd config;
-#X obj 70 240 tgl 20 0 empty dpleft empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 94 217 tgl 20 0 empty dpup empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 117 240 tgl 20 0 empty dpright empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 94 263 tgl 20 0 empty dpdown empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 170 200 tgl 15 0 empty back SELECT 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 240 200 tgl 15 0 empty start START 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 205 224 tgl 15 0 empty guide HOME 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 325 263 tgl 20 0 empty a A 22 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 360 240 tgl 20 0 empty b B 22 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 290 240 tgl 20 0 empty x X 22 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 325 217 tgl 20 0 empty y Y 22 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 94 170 tgl 15 0 empty leftshoulder LB 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 140 170 tgl 15 0 empty lefttrigger LT 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 280 170 tgl 15 0 empty righttrigger RT 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 327 170 tgl 15 0 empty rightshoulder RB 17 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X obj 119 354 tgl 20 0 empty leftstick empty 22 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X floatatom 152 342 6 0 0 0 - leftx - 0;
-#X floatatom 152 365 6 0 0 0 - lefty - 0;
-#X obj 278 354 tgl 20 0 empty rightstick empty 22 7 0 10 #fcfcfc #000000 #000000 0 1;
-#X floatatom 222 342 6 0 0 0 - rightx - 0;
-#X floatatom 222 365 6 0 0 0 - righty - 0;
+#X obj 70 240 tgl 20 0 empty dpleft empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 94 217 tgl 20 0 empty dpup empty 17 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X obj 117 240 tgl 20 0 empty dpright empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 94 263 tgl 20 0 empty dpdown empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 170 200 tgl 15 0 empty back SELECT 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 240 200 tgl 15 0 empty start START 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 205 224 tgl 15 0 empty guide HOME 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 325 263 tgl 20 0 empty a A 22 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X obj 360 240 tgl 20 0 empty b B 22 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X obj 290 240 tgl 20 0 empty x X 22 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X obj 325 217 tgl 20 0 empty y Y 22 7 0 10 #fcfcfc #000000 #000000
+0 1;
+#X obj 94 170 tgl 15 0 empty leftshoulder LB 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 140 170 tgl 15 0 empty lefttrigger LT 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 280 170 tgl 15 0 empty righttrigger RT 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 327 170 tgl 15 0 empty rightshoulder RB 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X obj 119 354 tgl 20 0 empty leftstick empty 22 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 152 342 6 0 0 0 - leftx -, f 6;
+#X floatatom 152 365 6 0 0 0 - lefty -, f 6;
+#X obj 278 354 tgl 20 0 empty rightstick empty 22 7 0 10 #fcfcfc #000000
+#000000 0 1;
+#X floatatom 222 342 6 0 0 0 - rightx -, f 6;
+#X floatatom 222 365 6 0 0 0 - righty -, f 6;
 #X text 203 342 x;
 #X text 203 365 y;
-#N canvas 738 383 450 300 controller 0;
-#X text 163 68 creation args: OSC dev name (required) \, axis range, f 28;
+#N canvas 739 383 450 300 controller 0;
+#X text 163 68 creation args: OSC dev name (required) \, axis range
+, f 28;
 #X obj 20 70 j_controller gc0;
 #N canvas 738 383 450 300 button 0;
 #X obj 20 70 list;
@@ -83,7 +104,8 @@
 #X obj 20 20 inlet;
 #X obj 120 100 print button;
 #X obj 120 70 spigot;
-#X obj 159 41 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 159 41 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
 #X connect 2 0 3 0;
@@ -93,11 +115,12 @@
 #X connect 6 0 5 0;
 #X connect 7 0 6 1;
 #X restore 20 158 pd button;
-#N canvas 800 243 496 563 axis 0;
+#N canvas 801 243 496 656 axis 0;
 #X obj 20 70 list;
 #X obj 20 20 inlet;
 #X obj 120 40 spigot;
-#X obj 159 11 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000 #000000 0 1;
+#X obj 159 11 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
+#000000 0 1;
 #X obj 120 70 print axis;
 #X obj 272 150 v leftx-last;
 #X obj 380 150 v leftx-orig;
@@ -107,13 +130,15 @@
 #X obj 380 210 v rightx-orig;
 #X obj 272 240 v righty-last;
 #X obj 380 240 v righty-orig;
-#X obj 240 70 bng 15 250 50 0 empty calibrate empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 240 70 bng 15 250 50 0 empty calibrate empty 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X msg 120 100 \; \$1-last \$2;
 #X msg 20 440 \$2 \$1 \$1-orig;
 #X obj 20 471 unpack f s s;
 #X obj 20 499 expr $f1-var($s2);
-#X obj 20 528 s;
-#X text 240 10 zero position calibration (press calibrate button in the main patch), f 28;
+#X obj 20 608 s;
+#X text 240 10 zero position calibration (press calibrate button in
+the main patch), f 28;
 #X obj 240 300 v leftx-last;
 #X obj 240 330 v lefty-last;
 #X obj 240 360 v rightx-last;
@@ -123,10 +148,18 @@
 #X msg 100 360 list rightx \$1;
 #X msg 100 390 list righty \$1;
 #X obj 240 94 t b b;
-#X obj 380 70 bng 15 250 50 0 empty reset empty 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 380 70 bng 15 250 50 0 empty reset empty 17 7 0 10 #fcfcfc #000000
+#000000;
 #X obj 380 94 t b b;
 #X msg 380 120 0;
 #X obj 240 270 t b;
+#X text 200 440 NOTE: The deadzone value is set with the toggle in
+the main patch. The default nonzero value is 128 which seems to work
+well with TouchOSC \, but depending on the gamepad that you have you
+may want to adjust this value in the properties of the deadzone switch.
+, f 37;
+#X obj 200 580 v deadzone;
+#X obj 20 528 expr if(abs($f1) <= deadzone+1 \, 0 \, $f1), f 21;
 #X connect 0 0 15 0;
 #X connect 0 0 14 0;
 #X connect 1 0 0 0;
@@ -142,7 +175,7 @@
 #X connect 16 0 17 0;
 #X connect 16 1 18 1;
 #X connect 16 2 17 1;
-#X connect 17 0 18 0;
+#X connect 17 0 35 0;
 #X connect 20 0 24 0;
 #X connect 21 0 25 0;
 #X connect 22 0 26 0;
@@ -167,6 +200,7 @@
 #X connect 32 0 23 0;
 #X connect 32 0 22 0;
 #X connect 32 0 21 0;
+#X connect 35 0 18 0;
 #X restore 129 158 pd axis;
 #X obj 20 20 inlet;
 #X obj 70 20 inlet;
@@ -176,10 +210,14 @@
 #X connect 5 0 1 1;
 #X restore 20 110 pd controller;
 #X text 220 20 joyosc;
-#X obj 160 140 bng 15 250 50 0 calibrate empty calibrate 17 7 0 10 #fcfcfc #000000 #000000;
-#X obj 240 140 bng 15 250 50 0 reset empty reset 17 7 0 10 #fcfcfc #000000 #000000;
+#X obj 140 140 bng 15 250 50 0 calibrate empty calibrate 17 7 0 10
+#fcfcfc #000000 #000000;
+#X obj 220 140 bng 15 250 50 0 reset empty reset 17 7 0 10 #fcfcfc
+#000000 #000000;
 #X obj 140 270 radar left;
 #X obj 220 270 radar right;
+#X obj 280 140 tgl 15 1 deadzone empty deadzone 17 7 0 10 #fcfcfc #000000
+#000000 0 128;
 #X connect 3 0 4 1;
 #X connect 4 0 30 0;
 #X connect 5 0 4 0;
