@@ -44,7 +44,7 @@ TouchOSC offers many other possibilities. E.g., you could run TouchOSC on a seco
 
 Having set up the gamepad to OSC conversion with either joyosc or TouchOSC as explained above, you should be ready to go now. Launch the joyosc.pd patch and turn on the `poll` toggle in the upper left corner to have the patch receive OSC messages. Wiggle the controls on your gamepad (or in TouchOSC) to test that it works. If it doesn't, double-check that the `poll` toggle is turned on. When using TouchOSC, make sure that you have entered the correct OSC host and port information, that both the OSC and gamepad connections are actually enabled, and that TouchOSC is in run mode (if you can see TouchOSC's toolbar, press the little play a.k.a. run icon to enter run mode).
 
-In some configurations, the joystick axes may show non-zero values if the sticks are in their resting positions. (In particular, this seems to be the case when using TouchOSC.) To get rid of this, make sure that both joysticks are in their resting positions and press the `calibrate` button. You can also revert the patch to the raw stick positions as reported in the OSC data by pressing the `reset` button.
+In some configurations, the joystick axes may show non-zero values if the sticks are in their resting positions. (I've never seen this with joyosc, but TouchOSC suffers from this.) The easiest way to deal with this situation is to increase the deadzone of joyosc.pd by turning on the corresponding toggle in the main patch. Alternatively, you can also calibrate joyosc.pd to make it report the center position as (0,0). To do this, make sure that both joysticks are in their resting positions and press the `calibrate` button. You can also revert the patch to the raw stick positions as reported in the OSC data by pressing the `reset` button.
 
 There are various configuration options for the j_controller.pd abstraction which may become useful if you'd like to tailor joyosc.pd for your own applications. Please check the included j_controller-help.pd patch for details.
 
@@ -54,7 +54,9 @@ Note that the joyosc.pd patch only visualizes your controller input. To actually
 
 - `leftx`, `lefty`, `rightx`, `righty`: left and right joystick position values, usually in the range -32768 to 32767.
 - `leftstick`, `rightstick`: left and right joystick button presses (0 or 1)
-- `a`, `b`, `x`, `y` (A/B/X/Y); `back`, `start`, `guide` (SELECT/START/HOME); `lefttrigger`, `righttrigger` (LT/RT); `leftshoulder`, `rightshoulder` (LB/RB); `dpleft`, `dpright`, `dpup`, `dpdown` (d-pad): various button presses (0 or 1). **NB:** The names in parentheses indicate the button labels from the TouchOSC template.
+- `a`, `b`, `x`, `y` (A/B/X/Y); `back`, `start`, `guide` (SELECT/START/HOME); `lefttrigger`, `righttrigger` (LT/RT); `leftshoulder`, `rightshoulder` (LB/RB); `dpleft`, `dpright`, `dpup`, `dpdown` (d-pad): various button presses (0 or 1).
+
+**NOTE:** While the receiver names correspond to the button names of the SDL2 library, the names in parentheses indicate the button labels in the TouchOSC template (these also correspond to what's printed on many real gamepads).
 
 The included spooky.pd patch (aptly named as I'm writing this shortly after Halloween) illustrates how these controller values might be put to good use in a little sound-generating patch. You can run this alongside the joyosc.pd patch. Use the joystick y axes for controlling the filter parameters, the d-pad (up/down) for controlling volume, and the A, B, and X buttons for toggling various features of the patch.
 
