@@ -1,9 +1,9 @@
-#N canvas 186 123 501 426 12;
+#N canvas 188 123 501 426 12;
 #X obj 60 190 cnv 15 335 199 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X text 220 70 robotcowboy.com | danomatika.com;
 #X text 220 50 Dan Wilcox 2009 \, 2015;
-#X obj 143 17 tgl 15 0 empty empty print 17 7 0 10 #fcfcfc #000000
+#X obj 143 20 tgl 15 0 empty empty print 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #N canvas 752 376 418 314 oscreceive 0;
 #X obj 47 131 oscparse;
@@ -34,11 +34,11 @@
 #X connect 11 0 10 0;
 #X coords 0 314 1 313 140 40 0;
 #X restore 20 50 pd oscreceive 8880;
-#X obj 20 15 tgl 15 0 empty empty poll 17 7 0 10 #fcfcfc #000000 #000000
+#X obj 20 20 tgl 15 0 empty empty poll 17 7 0 10 #fcfcfc #000000 #000000
 1 1;
-#N canvas 552 227 450 273 config 0;
-#X text 93 25 change dev name;
-#X msg 23 23 set gc2;
+#N canvas 554 227 450 273 config 0;
+#X text 90 22 change dev name;
+#X msg 20 20 set gc2;
 #X msg 70 93 hid;
 #X msg 70 128 norm;
 #X msg 70 163 midi;
@@ -46,11 +46,15 @@
 #X text 103 93 -32767 - 32767 (default);
 #X text 114 130 0 - 1 (normalized);
 #X text 113 165 0 - 127;
-#X obj 23 233 outlet;
+#X obj 20 230 outlet;
+#X obj 260 20 inlet;
+#X msg 260 49 set gc\$1;
 #X connect 1 0 9 0;
 #X connect 2 0 9 0;
 #X connect 3 0 9 0;
 #X connect 4 0 9 0;
+#X connect 10 0 11 0;
+#X connect 11 0 9 0;
 #X restore 108 80 pd config;
 #X obj 70 240 tgl 20 0 empty dpleft empty 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
@@ -92,11 +96,11 @@
 #X floatatom 222 365 6 0 0 0 - righty -, f 6;
 #X text 203 342 x;
 #X text 203 365 y;
-#N canvas 739 383 450 300 controller 0;
+#N canvas 743 383 450 300 controller 0;
 #X text 163 68 creation args: OSC dev name (required) \, axis range
 , f 28;
 #X obj 20 70 j_controller gc0;
-#N canvas 738 383 450 300 button 0;
+#N canvas 740 383 450 300 button 0;
 #X obj 20 70 list;
 #X msg 20 99 \$2 \$1;
 #X obj 20 129 unpack f s;
@@ -218,7 +222,9 @@ may want to adjust this value in the properties of the deadzone switch.
 #X obj 220 270 radar right;
 #X obj 280 140 tgl 15 1 deadzone empty deadzone 17 7 0 10 #fcfcfc #000000
 #000000 0 128;
+#X floatatom 108 17 0 0 9 0 gc - -;
 #X connect 3 0 4 1;
 #X connect 4 0 30 0;
 #X connect 5 0 4 0;
 #X connect 6 0 30 1;
+#X connect 37 0 6 0;
