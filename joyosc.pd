@@ -1,4 +1,4 @@
-#N canvas 188 123 501 426 12;
+#N canvas 190 123 501 426 12;
 #X obj 60 190 cnv 15 335 199 empty empty empty 20 12 0 14 #e0e0e0 #404040
 0;
 #X text 220 70 robotcowboy.com | danomatika.com;
@@ -35,7 +35,7 @@
 #X coords 0 314 1 313 140 40 0;
 #X restore 20 50 pd oscreceive 8880;
 #X obj 20 20 tgl 15 0 empty empty poll 17 7 0 10 #fcfcfc #000000 #000000
-1 1;
+0 1;
 #N canvas 554 227 450 273 config 0;
 #X text 90 22 change dev name;
 #X msg 20 20 set gc2;
@@ -81,7 +81,7 @@
 #X obj 94 170 tgl 15 0 empty leftshoulder LB 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 140 170 tgl 15 0 empty lefttrigger LT 17 7 0 10 #fcfcfc #000000
-#000000 0 1;
+#000000 0 3340;
 #X obj 280 170 tgl 15 0 empty righttrigger RT 17 7 0 10 #fcfcfc #000000
 #000000 0 1;
 #X obj 327 170 tgl 15 0 empty rightshoulder RB 17 7 0 10 #fcfcfc #000000
@@ -96,7 +96,7 @@
 #X floatatom 222 365 6 0 0 0 - righty -, f 6;
 #X text 203 342 x;
 #X text 203 365 y;
-#N canvas 743 383 450 300 controller 0;
+#N canvas 745 383 450 325 controller 0;
 #X text 163 68 creation args: OSC dev name (required) \, axis range
 , f 28;
 #X obj 20 70 j_controller gc0;
@@ -119,8 +119,8 @@
 #X connect 6 0 5 0;
 #X connect 7 0 6 1;
 #X restore 20 158 pd button;
-#N canvas 801 243 496 656 axis 0;
-#X obj 20 70 list;
+#N canvas 802 243 496 656 axis 0;
+#X obj 180 160 list;
 #X obj 20 20 inlet;
 #X obj 120 40 spigot;
 #X obj 159 11 tgl 15 0 empty empty empty 17 7 0 10 #fcfcfc #000000
@@ -136,7 +136,7 @@
 #X obj 380 240 v righty-orig;
 #X obj 240 70 bng 15 250 50 0 empty calibrate empty 17 7 0 10 #fcfcfc
 #000000 #000000;
-#X msg 120 100 \; \$1-last \$2;
+#X msg 30 340 \; \$1-last \$2;
 #X msg 20 440 \$2 \$1 \$1-orig;
 #X obj 20 471 unpack f s s;
 #X obj 20 499 expr $f1-var($s2);
@@ -147,10 +147,10 @@ the main patch), f 28;
 #X obj 240 330 v lefty-last;
 #X obj 240 360 v rightx-last;
 #X obj 240 390 v righty-last;
-#X msg 100 300 list leftx \$1;
-#X msg 100 330 list lefty \$1;
-#X msg 100 360 list rightx \$1;
-#X msg 100 390 list righty \$1;
+#X msg 120 300 list leftx \$1;
+#X msg 120 330 list lefty \$1;
+#X msg 120 360 list rightx \$1;
+#X msg 120 390 list righty \$1;
 #X obj 240 94 t b b;
 #X obj 380 70 bng 15 250 50 0 empty reset empty 17 7 0 10 #fcfcfc #000000
 #000000;
@@ -164,10 +164,15 @@ may want to adjust this value in the properties of the deadzone switch.
 , f 37;
 #X obj 200 580 v deadzone;
 #X obj 20 528 expr if(abs($f1) <= deadzone+1 \, 0 \, $f1), f 21;
-#X connect 0 0 15 0;
-#X connect 0 0 14 0;
-#X connect 1 0 0 0;
+#X obj 20 300 t a a;
+#X obj 20 99 route list;
+#X obj 20 128 route lefttrigger righttrigger;
+#X obj 20 216 unpack f s;
+#X msg 20 187 \$1 rightz;
+#X msg 20 157 \$1 leftz;
+#X connect 0 0 36 0;
 #X connect 1 0 2 0;
+#X connect 1 0 37 0;
 #X connect 2 0 4 0;
 #X connect 3 0 2 1;
 #X connect 5 0 6 0;
@@ -205,6 +210,16 @@ may want to adjust this value in the properties of the deadzone switch.
 #X connect 32 0 22 0;
 #X connect 32 0 21 0;
 #X connect 35 0 18 0;
+#X connect 36 0 15 0;
+#X connect 36 1 14 0;
+#X connect 37 0 38 0;
+#X connect 38 0 41 0;
+#X connect 38 1 40 0;
+#X connect 38 2 0 0;
+#X connect 39 0 18 0;
+#X connect 39 1 18 1;
+#X connect 40 0 39 0;
+#X connect 41 0 39 0;
 #X restore 129 158 pd axis;
 #X obj 20 20 inlet;
 #X obj 70 20 inlet;
@@ -223,6 +238,8 @@ may want to adjust this value in the properties of the deadzone switch.
 #X obj 280 140 tgl 15 1 deadzone empty deadzone 17 7 0 10 #fcfcfc #000000
 #000000 0 128;
 #X floatatom 108 17 0 0 9 0 gc - -;
+#X floatatom 174 167 6 0 0 0 - leftz -, f 6;
+#X floatatom 230 167 6 0 0 0 - rightz -, f 6;
 #X connect 3 0 4 1;
 #X connect 4 0 30 0;
 #X connect 5 0 4 0;
